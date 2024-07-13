@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cylxyguypq1tv"]
+
+[ext_resource type="Texture2D" uid="uid://baqa58q5ojr2y" path="res://Assets/Images/Honeycomb.png" id="1_mnhbk"]
+[ext_resource type="Script" path="res://Resources/Scripts/Honeycomb.cs" id="2_qviey"]
+[ext_resource type="Script" path="res://Resources/Scripts/HoverComponent.cs" id="3_1sfwu"]
+
+[node name="Honeycomb" type="Sprite2D" node_paths=PackedStringArray("hoverComponent")]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mnhbk")
+script = ExtResource("2_qviey")
+hoverComponent = NodePath("HoverComponent")
+
+[node name="HoverComponent" type="Node" parent="." node_paths=PackedStringArray("area")]
+script = ExtResource("3_1sfwu")
+area = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, -105, -40, -125, -80, -105, -80, -50, -120, -30, -120, 30, -80, 50, -80, 105, -41, 125, 0, 105, 40, 125, 80, 105, 80, 50, 120, 30, 120, -30, 80, -50, 80, -105, 40, -126)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpd1n8dneb6ga"]
+
+[ext_resource type="Texture2D" uid="uid://d1xi80lsip7w2" path="res://Assets/Images/Beehive.png" id="1_yiwxd"]
+[ext_resource type="Script" path="res://Resources/Scripts/Beehive.cs" id="2_oymgy"]
+[ext_resource type="PackedScene" uid="uid://cylxyguypq1tv" path="res://Resources/Scenes/Honeycomb.tscn" id="3_ctdbp"]
+[ext_resource type="PackedScene" uid="uid://ubcsfq5yp5jr" path="res://Resources/Scenes/ClickComponent.tscn" id="4_lau7m"]
+
+[node name="Beehive" type="Sprite2D" node_paths=PackedStringArray("clickComponent")]
+position = Vector2(640, 360)
+texture = ExtResource("1_yiwxd")
+script = ExtResource("2_oymgy")
+clickComponent = NodePath("ClickComponent")
+honeycombScene = ExtResource("3_ctdbp")
+
+[node name="ClickComponent" parent="." node_paths=PackedStringArray("area") instance=ExtResource("4_lau7m")]
+area = NodePath("../Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-75, -42, -83, -55, -87, -71, -81, -88, -70, -99, -52, -110, -34, -116, 0, -120, 34, -116, 64, -104, 81, -89, 88, -71, 83, -55, 75, -41, 90, -27, 99, -9, 99, 8, 92, 26, 76, 42, 85, 52, 85, 71, 79, 89, 61, 102, 40, 113, 18, 118, -5, 119, -28, 116, -50, 109, -68, 97, -82, 83, -86, 70, -86, 58, -82, 48, -75, 41, -92, 26, -99, 8, -98, -12, -90, -29)

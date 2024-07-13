@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl3jrohbdmr0f"]
+
+[ext_resource type="Texture2D" uid="uid://cp4d1keo8mtcc" path="res://Assets/Images/Bear.png" id="1_kb1tj"]
+[ext_resource type="Script" path="res://Resources/Scripts/Bear.cs" id="2_iwb5f"]
+[ext_resource type="Script" path="res://Resources/Scripts/EntityComponent.cs" id="4_7xk5i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a24gj"]
+radius = 126.0
+height = 418.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjw7f"]
+radius = 242.132
+
+[node name="Bear" type="Sprite2D" node_paths=PackedStringArray("bodyArea", "collectionArea")]
+texture = ExtResource("1_kb1tj")
+script = ExtResource("2_iwb5f")
+bodyArea = NodePath("BodyArea")
+collectionArea = NodePath("CollectionArea")
+
+[node name="BodyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea"]
+shape = SubResource("CapsuleShape2D_a24gj")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+shape = SubResource("CircleShape2D_vjw7f")
+debug_color = Color(0.776471, 0.4, 0.501961, 0.419608)
+
+[node name="EntityComponent" type="Node" parent="."]
+script = ExtResource("4_7xk5i")

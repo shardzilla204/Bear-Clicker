@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ubcsfq5yp5jr"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/ClickComponent.cs" id="1_jrvtt"]
+
+[node name="ClickComponent" type="Node"]
+script = ExtResource("1_jrvtt")
